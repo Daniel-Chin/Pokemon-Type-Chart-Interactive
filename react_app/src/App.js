@@ -40,77 +40,87 @@ const App = () => {
   };
 
   return (
-    <div className='in-body'>
-      {
-        ALL_TYPES.map((t, i) => (
-          <Cell 
-            x={0} y={order.indexOf(t) + 3} key={i}
-            label={<b>{ATTA}</b>}
-          />
-        ))
-      }
-      {
-        ALL_TYPES.map((t, i) => (
-          <Cell 
-            y={0} x={order.indexOf(t) + 3} key={i}
-            label={<b>{DEFE}</b>}
-          />
-        ))
-      }
-      {
-        ALL_TYPES.map((t, i) => (
-          <Cell 
-            x={1} y={order.indexOf(t) + 3} key={i} t={t}
-            selected={selected}
-            is_checkbox onCheckboxChange={onCheckboxChange} 
-          />
-        ))
-      }
-      {
-        ALL_TYPES.map((t, i) => (
-          <Cell 
-            y={1} x={order.indexOf(t) + 3} key={i} t={t} 
-            selected={selected}
-            is_checkbox onCheckboxChange={onCheckboxChange} 
-          />
-        ))
-      }
-      {
-        ALL_TYPES.map((t, i) => (
-          <Cell 
-            x={2} y={order.indexOf(t) + 3} key={i} label={t} 
-            hover_x={hover_x} hover_y={hover_y} 
-            is_type_heading t={t}
-          />
-        ))
-      }
-      {
-        ALL_TYPES.map((t, i) => (
-          <Cell 
-            y={2} x={order.indexOf(t) + 3} key={i} label={t} 
-            hover_x={hover_x} hover_y={hover_y} 
-            is_type_heading t={t}
-          />
-        ))
-      }
-      {
-        ALL_TYPES.map((atta, i) => {
-          const y = order.indexOf(atta);
-          return ALL_TYPES.map((defe, j) => {
-            const x = order.indexOf(defe);
-            return <Cell 
-              x={x + 3} y={y + 3} key={i * N + j}
-              label={DISPLAY[RULE[atta][defe]]} 
-              onMouseEnter={onMouseEnter} 
-              onMouseLeave={onMouseLeave}
-              hover_x={hover_x} hover_y={hover_y}
-              selected={selected} atta={atta} defe={defe}
-              is_body tooltip={`${atta}${ATTA}${DEFE}${defe}`}
+    <div>
+      <p className='intro'>
+        Made by <a href='https://inspiring-yonath-a67980.netlify.app/'>
+          Daniel Chin
+        </a>.{' '}
+        <a href='https://github.com/Daniel-Chin/Pokemon-Type-Chart-Interactive'>
+          Github repo
+        </a>
+      </p>
+      <div className='relative'>
+        {
+          ALL_TYPES.map((t, i) => (
+            <Cell 
+              x={0} y={order.indexOf(t) + 3} key={i}
+              label={<b>{ATTA}</b>}
             />
+          ))
+        }
+        {
+          ALL_TYPES.map((t, i) => (
+            <Cell 
+              y={0} x={order.indexOf(t) + 3} key={i}
+              label={<b>{DEFE}</b>}
+            />
+          ))
+        }
+        {
+          ALL_TYPES.map((t, i) => (
+            <Cell 
+              x={1} y={order.indexOf(t) + 3} key={i} t={t}
+              selected={selected}
+              is_checkbox onCheckboxChange={onCheckboxChange} 
+            />
+          ))
+        }
+        {
+          ALL_TYPES.map((t, i) => (
+            <Cell 
+              y={1} x={order.indexOf(t) + 3} key={i} t={t} 
+              selected={selected}
+              is_checkbox onCheckboxChange={onCheckboxChange} 
+            />
+          ))
+        }
+        {
+          ALL_TYPES.map((t, i) => (
+            <Cell 
+              x={2} y={order.indexOf(t) + 3} key={i} label={t} 
+              hover_x={hover_x} hover_y={hover_y} 
+              is_type_heading t={t}
+            />
+          ))
+        }
+        {
+          ALL_TYPES.map((t, i) => (
+            <Cell 
+              y={2} x={order.indexOf(t) + 3} key={i} label={t} 
+              hover_x={hover_x} hover_y={hover_y} 
+              is_type_heading t={t}
+            />
+          ))
+        }
+        {
+          ALL_TYPES.map((atta, i) => {
+            const y = order.indexOf(atta);
+            return ALL_TYPES.map((defe, j) => {
+              const x = order.indexOf(defe);
+              return <Cell 
+                x={x + 3} y={y + 3} key={i * N + j}
+                label={DISPLAY[RULE[atta][defe]]} 
+                onMouseEnter={onMouseEnter} 
+                onMouseLeave={onMouseLeave}
+                hover_x={hover_x} hover_y={hover_y}
+                selected={selected} atta={atta} defe={defe}
+                is_body tooltip={`${atta}${ATTA}${DEFE}${defe}`}
+              />
+            })
           })
-        })
-      }
-      <Cell x={N + 3} y={N + 3} label='.' />
+        }
+        <Cell x={N + 3} y={N + 3} label='.' />
+      </div>
     </div>
   );
 };
