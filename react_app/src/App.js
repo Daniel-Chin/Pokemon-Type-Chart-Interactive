@@ -16,7 +16,7 @@ const DISPLAY = {
 };
 
 const App = () => {
-  const [ selected, set_selected ] = useState(['普']);
+  const [ selected, set_selected ] = useState(['冰']);
   const [ hover_x, set_hover_x ] = useState(-1);
   const [ hover_y, set_hover_y ] = useState(-1);
 
@@ -41,13 +41,21 @@ const App = () => {
 
   return (
     <div>
-      <p className='intro'>
-        Made by <a href='https://inspiring-yonath-a67980.netlify.app/'>
+      <h1 className='center'>
+        Interactive Pokemon Type Chart
+      </h1>
+      <p className='center'>
+        Made by {' '}
+        <a href='https://inspiring-yonath-a67980.netlify.app/'>
           Daniel Chin
-        </a>.{' '}
+        </a>.
+        <br />
+        Click a checkbox to toggle selection. 
+        <br />
+        Source code at {' '}
         <a href='https://github.com/Daniel-Chin/Pokemon-Type-Chart-Interactive'>
           Github repo
-        </a>
+        </a>. 
       </p>
       <div className='relative'>
         {
