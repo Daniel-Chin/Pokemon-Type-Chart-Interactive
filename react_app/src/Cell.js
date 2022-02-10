@@ -16,7 +16,7 @@ const Cell = ({
     color = isDark(COLOR[t]) ? 'white' : 'black';
   } else if (is_body) {
     if (x === y) {
-      back_color = '#ddd';
+      back_color = '#eee';
     } else {
       if (selected.includes(atta) || selected.includes(defe)) {
         back_color = '#333';
