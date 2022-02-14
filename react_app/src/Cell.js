@@ -1,5 +1,6 @@
 import React from 'react';
 import { COLOR, formatRGB, isDark } from "./color.js"; 
+import fullname from "./name.js"; 
 
 const UNIT = 'em';
 const SIZE = 1.5;
@@ -52,7 +53,12 @@ const Cell = ({
         {is_checkbox ? <input 
           type='checkbox' checked={selected.includes(t)} 
           onChange={onCheckboxChange.bind(null, t)}
-        /> : label}
+        /> : (is_type_heading ? <a 
+          href={`https://wiki.52poke.com/wiki/${fullname[label]}%EF%BC%88%E5%B1%9E%E6%80%A7%EF%BC%89`}
+          class='anti-link' target="_blank" rel="noreferrer noopener"
+        >
+          {label}
+        </a> : label)}
       </div>
     </div>
   );

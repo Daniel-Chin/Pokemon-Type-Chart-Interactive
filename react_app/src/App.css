@@ -18,3 +18,8 @@
 .center {
   text-align: center;
 }
+
+.anti-link {
+  color: inherit;
+  text-decoration: none;
+}
