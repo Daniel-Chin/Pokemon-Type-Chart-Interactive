@@ -30,6 +30,10 @@ def main():
         for t1 in ALL_TYPES:
             row[t1]
             # this must not raise KeyError. 
+    writeJs(rule)
+    # writePy(rule)
+
+def writeJs(rule):
     with open(
         'react_app/src/rule.js', 'w', encoding='utf-8', 
         newline='\n',
@@ -43,5 +47,23 @@ def main():
             print('  }, ', file=f)
         print('}; \n', file=f)
         print('export default RULE;', file=f)
+
+def writePy(rule):
+    with open(
+        'rule.py', 'w', encoding='utf-8', 
+        newline='\n',
+    ) as f:
+        print('''DOUBLE = "DOUBLE" 
+HALF = "HALF" 
+IMMUNE = "IMMUNE" 
+NORMAL = "NORMAL" 
+''', file=f)
+        print('RULE = dict(', file=f)
+        for k, v in rule.items():
+            print(' ', k, '= dict(', file=f)
+            for kk, vv in v.items():
+                print('   ', kk, '=', vv, ', ', file=f)
+            print('  ), ', file=f)
+        print(') \n', file=f)
 
 main()
