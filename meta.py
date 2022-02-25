@@ -1,6 +1,6 @@
 import csv
 
-ALL_TYPES = '普火冰草电冰斗毒地飞超虫岩鬼龙恶钢妖'
+ALL_TYPES = '普火水草电冰斗毒地飞超虫岩鬼龙恶钢妖'
 DOUBLE = 'DOUBLE'
 HALF = 'HALF'
 IMMUNE = 'IMMUNE'
@@ -50,7 +50,7 @@ def writeJs(rule):
 
 def writePy(rule):
     with open(
-        'rule.py', 'w', encoding='utf-8', 
+        'exchange_safety/rule.py', 'w', encoding='utf-8', 
         newline='\n',
     ) as f:
         print('''DOUBLE = "DOUBLE" 
